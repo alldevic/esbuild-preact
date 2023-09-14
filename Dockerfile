@@ -8,16 +8,6 @@ COPY package.json yarn.lock /app/
 
 RUN yarn && rm -rf /usr/local/share/.cache /tmp/*
 
-
-FROM base as dev
-
 EXPOSE 5000
 
 CMD ["yarn", "dev"]
-
-
-FROM base as prod
-
-COPY . .
-
-RUN yarn build && rm -rf /usr/local/share/.cache /tmp/*

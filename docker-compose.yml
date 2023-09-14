@@ -4,7 +4,6 @@ services:
   dev:
     build:
       context: .
-      target: dev
     container_name: esp_dev
     user: ${CURRENT_UID}
     restart: on-failure
