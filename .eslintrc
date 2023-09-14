@@ -11,5 +11,8 @@
     {
       "files": ["**/*.{ts,tsx,js,jsx,mjs}"]
     }
-  ]
+  ],
+  "env":{
+    "browser": true
+  }
 }
