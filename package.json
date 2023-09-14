@@ -1,0 +1,34 @@
+{
+  "name": "vite-template-solid",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node ./tools/build.mjs",
+    "clean": "rm -rf ./node_modules ./dist .yarn-error.log ./dist_dev ./stats",
+    "clean:all": "yarn clean ./yarn.lock .vscode yarn-error.log .eslintcache",
+    "dev": "node ./tools/dev.mjs",
+    "eslint": "eslint . --cache",
+    "eslint:fix": "yarn eslint --fix",
+    "format": "yarn eslint:fix && yarn prettier:fix",
+    "prettier": "prettier --check --ignore-unknown --cache .",
+    "prettier:fix": "prettier --write --list-different --cache .",
+    "serve": "node ./tools/serve.mjs",
+    "stats": "node ./tools/stats.mjs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/parser": "6.7.0",
+    "esbuild": "0.19.2",
+    "esbuild-visualizer": "0.4.1",
+    "eslint": "8.49.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-prettier": "5.0.0",
+    "prettier": "3.0.3",
+    "typescript": "npm:@kidonng/typescript"
+  },
+  "dependencies": {
+    "goober": "2.1.13",
+    "csstype": "3.1.2",
+    "preact": "10.17.1"
+  }
+}
