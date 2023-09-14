@@ -1,5 +1,4 @@
-import { h } from 'preact';
-import { css } from 'goober';
+import { css } from 'goober'
 
 const Wrapper = css`
   border-radius: 8px;
@@ -8,7 +7,7 @@ const Wrapper = css`
   margin: 2rem;
   max-width: 400px;
   align-self: center;
-`;
+`
 
 export default () => {
   return (

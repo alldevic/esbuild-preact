@@ -1,4 +1,4 @@
-import { glob } from 'goober';
+import { glob } from 'goober'
 
 export const mainGlobalStyles = () => glob`
 body {
@@ -12,4 +12,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}`;
+}`

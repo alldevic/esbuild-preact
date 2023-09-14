@@ -1,10 +1,10 @@
-import { css } from 'goober';
+import { css } from 'goober'
 
 export const App = css`
   text-align: center;
   min-height: 100vh;
   background-color: #282c34;
-`;
+`
 
 export const AppHeader = css`
   padding-top: 4rem;
@@ -14,11 +14,11 @@ export const AppHeader = css`
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-`;
+`
 
 export const AppLink = css`
   color: #61dafb;
-`;
+`
 
 export const AppLogo = css`
   height: 40vmin;
@@ -33,11 +33,11 @@ export const AppLogo = css`
       transform: scale(1.06);
     }
   }
-`;
+`
 
 export const Content = css`
   width: 80%;
-`;
+`
 
 export const Pre = css`
   background: #333333;
@@ -54,7 +54,7 @@ export const Pre = css`
       width: auto;
     }
   }
-`;
+`
 
 export const Button = css`
   border: 0;
@@ -68,7 +68,7 @@ export const Button = css`
   &:hover {
     transform: scale(1.1);
   }
-`;
+`
 
 export const AppMain = css`
   background-color: #282c34;
@@ -78,4 +78,4 @@ export const AppMain = css`
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-`;
+`

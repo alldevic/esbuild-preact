@@ -1,7 +1,7 @@
-import { h } from 'preact'
 import { useState, useEffect, useRef } from 'preact/hooks'
 import logo from './assets/logo.png'
 import * as classes from './styles/app'
+import preact from 'preact'
 
 const LazyComponent = (props: any) => {
   const moduleRef = useRef<any>(null)
