@@ -16,7 +16,9 @@ function getEntryPoints() {
   readdirSync('./public/').forEach(file => {
     const ext_name = path.extname(file)
     entries.push({ in: file, out: path.basename(file, ext_name) })
-    loaders[ext_name] = 'copy'
+    if (ext_name === '.png') {
+      loaders[ext_name] = 'file'
+    } else loaders[ext_name] = 'copy'
   })
 
   return { entries, loaders }
@@ -29,6 +31,7 @@ const baseconf = {
   loader: loaders,
   bundle: true,
   color: true,
+  format: 'esm',
   plugins: [],
 }
 
