@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "node ./tools/build.mjs",
+    "build": "yarn eslint && node ./tools/build.mjs",
     "clean": "rm -rf ./node_modules ./dist .yarn-error.log ./dist_dev ./stats",
     "clean:all": "yarn clean ./yarn.lock .vscode yarn-error.log .eslintcache",
     "dev": "node ./tools/dev.mjs",
