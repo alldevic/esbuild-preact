@@ -31,6 +31,7 @@ const baseconf = {
   loader: loaders,
   bundle: true,
   color: true,
+  target: 'es2015',
   format: 'esm',
   plugins: [],
 }
