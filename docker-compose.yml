@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  dev:
+    build:
+      context: .
+      target: dev
+    container_name: esp_dev
+    user: ${CURRENT_UID}
+    restart: on-failure
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 5000:5000
+     

@@ -11,7 +11,9 @@ RUN yarn && rm -rf /usr/local/share/.cache /tmp/*
 
 FROM base as dev
 
-ENTRYPOINT ["yarn", "dev"]
+EXPOSE 5000
+
+CMD ["yarn", "dev"]
 
 
 FROM base as prod
