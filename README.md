@@ -1,1 +1,3 @@
 # TODO
+
+- yarn autoclean

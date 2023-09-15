@@ -11,28 +11,25 @@ export const devport = 5000
 
 function getEntryPoints() {
   const entries = [{ in: './src/client.tsx', out: 'index' }]
-  const loaders = {}
 
   readdirSync('./public/').forEach(file => {
     const ext_name = path.extname(file)
     entries.push({ in: file, out: path.basename(file, ext_name) })
-    if (ext_name === '.png') {
-      loaders[ext_name] = 'file'
-    } else loaders[ext_name] = 'copy'
   })
 
-  return { entries, loaders }
+  return entries
 }
 
-const { entries, loaders } = getEntryPoints()
+const entries = getEntryPoints()
 
 const baseconf = {
   entryPoints: entries,
-  loader: loaders,
+  loader: { '.png': 'file', '.html': 'copy' },
   bundle: true,
   color: true,
   target: 'es2015',
   format: 'esm',
+  splitting: true,
   plugins: [],
 }
 
@@ -49,11 +46,12 @@ export const prodconf = {
   outdir: outdir,
   minify: true,
   logLevel: 'info',
-  metafile: true,
+  metafile: true, // for compress
   plugins: [...baseconf.plugins, compressPlugin(), cleanPlugin([outdir])],
 }
 
 export const statsconf = {
   ...prodconf,
-  plugins: [...baseconf.plugins, statsPlugin(outdir)],
+  metafile: true,
+  plugins: [...prodconf.plugins, statsPlugin(outdir)],
 }
