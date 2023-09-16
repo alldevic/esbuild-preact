@@ -1,3 +1,4 @@
 # TODO
 
-- yarn autoclean
+- yarn autoclean?
+- minimize deps count in container
