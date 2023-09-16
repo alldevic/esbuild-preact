@@ -10,6 +10,7 @@
     "eslint": "eslint . --cache",
     "eslint:fix": "yarn eslint --fix",
     "format": "yarn eslint:fix && yarn prettier:fix",
+    "prepare": "husky install",
     "prettier": "prettier --check --ignore-unknown --cache .",
     "prettier:fix": "prettier --write --list-different --cache .",
     "serve": "node ./tools/serve.mjs",
@@ -23,7 +24,7 @@
     "esbuild-visualizer": "0.4.1",
     "eslint": "8.49.0",
     "eslint-config-prettier": "9.0.0",
-    "eslint-plugin-prettier": "5.0.0",
+    "husky": "8.0.3",
     "prettier": "3.0.3",
     "typescript": "npm:@kidonng/typescript"
   },
