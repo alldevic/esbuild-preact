@@ -4,6 +4,7 @@ import compressPlugin from './tools/plugins/compress.mjs'
 import devPlugin from './tools/plugins/dev.mjs'
 import statsPlugin from './tools/plugins/stats.mjs'
 import { readdirSync } from './tools/utils.mjs'
+// import million from 'million/compiler'
 
 export const outdir = './dist'
 export const serveport = 3000
@@ -30,6 +31,7 @@ const baseconf = {
   target: 'es2015',
   format: 'esm',
   splitting: true,
+  // plugins: [million.esbuild({ auto: true, mode: 'preact' })],
   plugins: [],
 }
 

@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "goober": "2.1.13",
+    "million": "2.6.0",
     "preact": "10.17.1"
   }
 }
