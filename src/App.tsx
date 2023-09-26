@@ -1,59 +1,54 @@
-import { useState, useEffect, useRef } from 'preact/hooks'
-import logo from './assets/logo.png'
-import * as classes from './styles/app'
-import preact from 'preact'
+import { Grid } from 'gridjs'
+import 'gridjs/dist/theme/mermaid.css'
+import { useRef, useEffect } from 'preact/hooks'
 
-const LazyComponent = (props: any) => {
-  const moduleRef = useRef<any>(null)
-  const [loaded, setLoaded] = useState(false)
+function helloWorld() {
+  const wrapperRef = useRef(null)
+
+  const grid = new Grid({
+    // search: {
+    //   server: {
+    //     url: (prev, keyword) => `${prev}?search=${keyword}`,
+    //   },
+    // },
+    columns: ['Pokemon', 'URL', '1', '2', '3', '4', '1', '2', '3', '4'],
+    pagination: {
+      limit: 1270,
+      server: {
+        url: (prev, page, limit) => `${prev}?limit=${limit}&offset=${page * limit}`,
+      },
+    },
+    server: {
+      url: 'https://pokeapi.co/api/v2/pokemon',
+      then: data =>
+        data.results.map(pokemon => [
+          pokemon.name,
+          pokemon.url,
+          pokemon.url,
+          pokemon.url,
+          pokemon.url,
+          pokemon.url,
+          pokemon.url,
+          pokemon.url,
+          pokemon.url,
+          pokemon.url,
+        ]),
+      total: data => data.count,
+    },
+    sort: true,
+    resizable: true,
+
+    className: {
+      td: 'my-custom-td-class',
+      table: 'custom-table-classnameroot',
+    },
+  })
 
   useEffect(() => {
-    const loadChunk = async () => {
-      console.log('loadChunk called')
-      moduleRef.current = (await import('./components/SomeComponent')).default
+    grid.render(wrapperRef.current)
+  })
 
-      setLoaded(true)
-    }
-
-    loadChunk()
-  }, [])
-
-  const rendered = loaded ? <moduleRef.current {...props} /> : null
-
-  return rendered
+  return <div ref={wrapperRef} />
 }
 
-const App: preact.FunctionComponent<{ name: string }> = ({ name = '' }) => {
-  const [show, setShow] = useState(false)
-  console.log('Welcome,', name)
-
-  return (
-    <div className={classes.App}>
-      <header className={classes.AppHeader}>
-        <img src={logo} className={classes.AppLogo} alt='logo' />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>Welcome to esbuild + Preact + TypeScript starter!</p>
-        <div className={classes.Content}>
-          <pre className={classes.Pre}>
-            <code>$ yarn install</code>
-            <br />
-            <code>$ yarn build</code>
-            <br />
-            <code>$ yarn serve</code>
-          </pre>
-        </div>
-      </header>
-
-      <main className={classes.AppMain}>
-        <button className={classes.Button} onClick={() => setShow(true)}>
-          Click me to render a lazily loaded component
-        </button>
-        {show ? <LazyComponent /> : null}
-      </main>
-    </div>
-  )
-}
-
-export default App
+export default helloWorld

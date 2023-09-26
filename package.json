@@ -18,19 +18,19 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@typescript-eslint/parser": "6.7.2",
-    "csstype": "3.1.2",
+    "@linaria/esbuild": "5.0.2",
+    "@typescript-eslint/parser": "6.7.3",
     "esbuild": "0.19.3",
     "esbuild-visualizer": "0.4.1",
     "eslint": "8.50.0",
     "eslint-config-prettier": "9.0.0",
     "husky": "8.0.3",
     "prettier": "3.0.3",
-    "typescript": "npm:@kidonng/typescript"
+    "typescript": "npm:@kidonng/typescript@4.9.5-0"
   },
   "dependencies": {
-    "goober": "2.1.13",
-    "million": "2.6.0",
+    "gridjs": "6.0.6",
+    "million": "2.6.1",
     "preact": "10.17.1"
   }
 }

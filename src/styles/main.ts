@@ -1,15 +1,34 @@
-import { glob } from 'goober'
+import { css } from '@linaria/core'
 
-export const mainGlobalStyles = () => glob`
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}`
+export const globals = css`
+  :global() {
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    :root {
+      color-scheme: light dark;
+
+      @media (prefers-color-scheme: light) {
+        background-color: #fff;
+        color: #111;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        background-color: hsl(0deg 0% 10%);
+        color: #fff;
+      }
+    }
+
+    #root {
+      display: grid;
+      grid-template-columns: auto 1fr;
+    }
+
+    .fill-grid {
+      block-size: 100%;
+    }
+  }
+`

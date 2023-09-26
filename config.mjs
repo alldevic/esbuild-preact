@@ -4,7 +4,8 @@ import compressPlugin from './tools/plugins/compress.mjs'
 import devPlugin from './tools/plugins/dev.mjs'
 import statsPlugin from './tools/plugins/stats.mjs'
 import { readdirSync } from './tools/utils.mjs'
-// import million from 'million/compiler'
+import million from 'million/compiler'
+import linaria from '@linaria/esbuild'
 
 export const outdir = './dist'
 export const serveport = 3000
@@ -31,8 +32,7 @@ const baseconf = {
   target: 'es2015',
   format: 'esm',
   splitting: true,
-  // plugins: [million.esbuild({ auto: true, mode: 'preact' })],
-  plugins: [],
+  plugins: [million.esbuild({ auto: true, mode: 'preact' })],
 }
 
 export const devconf = {
@@ -40,7 +40,13 @@ export const devconf = {
   outdir: './dist_dev',
   logLevel: 'debug',
   minify: false,
-  plugins: [...baseconf.plugins, devPlugin()],
+  plugins: [
+    ...baseconf.plugins,
+    devPlugin(),
+    linaria({
+      sourceMap: false,
+    }),
+  ],
 }
 
 export const prodconf = {
@@ -49,7 +55,14 @@ export const prodconf = {
   minify: true,
   logLevel: 'info',
   metafile: true, // for compress
-  plugins: [...baseconf.plugins, compressPlugin(), cleanPlugin([outdir])],
+  plugins: [
+    ...baseconf.plugins,
+    linaria({
+      sourceMap: true,
+    }),
+    compressPlugin(),
+    cleanPlugin([outdir]),
+  ],
 }
 
 export const statsconf = {
