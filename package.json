@@ -18,7 +18,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@linaria/esbuild": "5.0.2",
+    "@linaria/esbuild": "5.0.3",
     "@typescript-eslint/parser": "6.7.3",
     "esbuild": "0.19.4",
     "esbuild-visualizer": "0.4.1",
@@ -31,6 +31,6 @@
   "dependencies": {
     "gridjs": "6.0.6",
     "million": "2.6.2",
-    "preact": "10.17.1"
+    "preact": "10.18.0"
   }
 }
